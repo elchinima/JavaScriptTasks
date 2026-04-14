@@ -52,13 +52,6 @@ function FuncString(greeting) {
 
 };
 
-FuncString("Hello World");
-console.log(`Task1: ${result.result}`);
-ArrayOne();
-
-
-
-
 const universityGroup = {
     groupName: "PA-202",
     students: [],
@@ -69,102 +62,104 @@ const universityGroup = {
 
     removeStudent(id) {
         id = id - 1,
-        this.students.splice(id, 1)
+            this.students.splice(id, 1)
     },
 
-    // Get student by id
     getStudent(id) {
-
-    },
-
-    //  Get average grade of student
-    getAverageGrade(id) {
-
-    },
-
-    //  Add grade to student
-    addGrade(id, grade) {
-
-    },
-
-    //  Get top student (by average grade)
-    getTopStudent() {
-
+        id = id - 1,
+            alert(`Result: ${this.students[id]}`)
     },
 
     getAllStudents() {
         alert(`All: ${this.students}`)
     },
-
-    //  Bonus: best student name
-    getBestStudentName() {
-
-    }
 };
 
+function StudentApp() {
+    while (true) {
 
+        var option = String(prompt("Add, Remove, Get, Exit"));
 
-while (true) {
-
-    var option = String(prompt("Add, Exit"));
-
-    if (option == "Exit") {
-        alert("Bye!");
-        break;
-    }
-
-    switch (option) {
-
-        case "Add":
-            var studentNameAdd = String(prompt("Student Add:"));
-
-            if (studentNameAdd == null)
-                alert("The name can't be empty!");
-
-            else if (studentNameAdd.length <= 2 && studentNameAdd != null)
-                alert("The name can't be less than 3 characters!");
-
-            else if (studentNameAdd != null && studentNameAdd.length > 2) {
-                universityGroup.addStudent(studentNameAdd);
-                alert("Student added!");
-            }
-
-            else
-                alert("Error!");
-
+        if (option == "Exit") {
+            alert("Bye!");
             break;
+        }
 
-        case "Remove":
-            var input = prompt("Student Remove (Id):");
+        switch (option) {
 
-            if (input === null || input.trim() === "") {
-                alert("Can't be empty!");
-            } 
-            
-            else {
-                var studentRemove = parseInt(input);
+            case "Add":
+                var studentNameAdd = String(prompt("Student Add:"));
 
-                if (isNaN(studentRemove)) {
-                    alert("Not a valid number!");
-                } 
-                
-                else {
-                    universityGroup.removeStudent(studentRemove);
-                    alert("Student removed!");
+                if (studentNameAdd == null)
+                    alert("The name can't be empty!");
+
+                else if (studentNameAdd.length <= 2 && studentNameAdd != null)
+                    alert("The name can't be less than 3 characters!");
+
+                else if (studentNameAdd != null && studentNameAdd.length > 2) {
+                    universityGroup.addStudent(studentNameAdd);
+                    alert("Student added!");
                 }
-            }
 
-            break;
+                else
+                    alert("Error!");
 
-        case "All":
+                break;
 
-            universityGroup.getAllStudents();
+            case "Remove":
+                var input = prompt("Student Remove (Id):");
 
-            break;
+                if (input === null || input.trim() === "") {
+                    alert("Can't be empty!");
+                }
+
+                else {
+                    var studentRemove = parseInt(input);
+
+                    if (isNaN(studentRemove)) {
+                        alert("Not a valid number!");
+                    }
+
+                    else {
+                        universityGroup.removeStudent(studentRemove);
+                        alert("Student removed!");
+                    }
+                }
+
+                break;
+
+            case "Get":
+
+                var inputGet = prompt("Get Student (Id):");
+
+                if (inputGet === null || inputGet.trim() === "") {
+                    alert("Can't be empty!");
+                }
+
+                else {
+                    var studentGet = parseInt(inputGet);
+
+                    if (isNaN(studentGet)) {
+                        alert("Not a valid number!");
+                    }
+
+                    else {
+                        universityGroup.getStudent(studentGet);
+                    }
+                }
+
+                break;
+
+            case "All":
+
+                universityGroup.getAllStudents();
+
+                break;
+        };
     };
 };
 
-
-
-
-
+// ArrayOne();
+// StudentApp();
+// FuncString("Hello World");
+// console.log(`Task1: ${result.result}`);
